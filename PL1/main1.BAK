@@ -23,12 +23,7 @@ nth1(Y,P,Personaje2),
 write('\n'),
 
 write('Te recuerdo sus características:\n'),
-lista_caracteristicas(Personaje1,S), write(S),
-
-write('Elige de entre las siguientes preguntas una que quieras hacerme y escríbela\ncambiando la interrogación por un punto: chico?, chica?, gafas?,\npelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?\n'),
-
-
-.
+lista_caracteristicas(Personaje1,S), write(S).
 
 
 

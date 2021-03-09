@@ -12,5 +12,5 @@ ojos_marrones(['Paul', 'Tom', 'Derek', 'Michael', 'Charles', 'Steve', 'Anthony',
 gafas(['Albert', 'Michael', 'Charles', 'Anthony', 'Natalie', 'Sabrina']).
 no_gafas(['Paul','Tom','Derek','Richard','Louis','Sam','Steve','Will','Billy','Henry','Tiffany','Roxanne','Sarah','Cindy', 'Emma']).
 
-preguntas(['chico','chica','pelo_rubio','pelo_negro','ropa_roja','ropa_verde','feliz','triste','ojos_azules','ojos_marrones','gafas','no_gafas']).
+preguntas(['chico','chica','pelo_rubio','pelo_negro','ropa_roja','ropa_verde','feliz','triste','ojos_azules','ojos_marrones','gafas','no_gafas'])
 

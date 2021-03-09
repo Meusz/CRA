@@ -20,14 +20,14 @@ pregunta_valida(Y):- preguntas(X),member(Y,X).
 personaje_valido(Y):- personaje(X),member(Y,X).
 
 
-lista_caracteristicas(X, R):- S = [],append_chico(X,S,A),append_gafas(X,A,B),append_pelo(X,B,C),append_ropa(X,C,D),append_estado(X,D,E),append_ojos(X,E,R).
+lista_caracteristicas(X,S):- S = [].%,append_chico(X,S).%,append_gafas(X,S)%,append_pelo(X,S),append_ropa(X,S),append_estado(X,S),append_ojos(X,S).
 
-append_chico(X,S,R):-  es_chico(X),append(S,['chico'],R); es_chica(X),append(S,['chica'],R).
-append_gafas(X,S,R):-  lleva_gafas(X),append(S,['lleva_gafas'],R); no_lleva_gafas(X),append(S,['no_lleva_gafas'],R).
-append_pelo(X,S,R):-   tiene_pelo_rubio(X),append(S,['tiene_pelo_rubio'],R);tiene_pelo_negro(X),append(S,['tiene_pelo_negro'],R).
-append_ropa(X,S,R):-   tiene_ropa_roja(X),append(S,['tiene_ropa_roja'],R);tiene_ropa_verde(X),append(S,['tiene_ropa_verde'],R).
-append_estado(X,S,R):- esta_feliz(X),append(S,['esta_feliz'],R);esta_triste(X),append(S,['esta_triste'],R).
-append_ojos(X,S,R):-   tiene_ojos_azules(X),append(S,['tiene_ojos_azules'],R);tiene_ojos_marrones(X),append(S,['tiene_ojos_marrones'],R).
+append_chico(X,S):-  es_chico(X),append(S,['chico'],R),S=R; es_chica(X),append(S,['chica'],R),S=R.
+append_gafas(X,S):-  lleva_gafas(X),append(S,['lleva_gafas'],S); no_lleva_gafas(X),append(S,['no_lleva_gafas'],S).
+append_pelo(X,S):-   tiene_pelo_rubio(X),append(S,['tiene_pelo_rubio'],S);tiene_pelo_negro(X),append(S,['tiene_pelo_negro'],S).
+append_ropa(X,S):-   tiene_ropa_roja(X),append(S,['tiene_ropa_roja'],S);tiene_ropa_verde(X),append(S,['tiene_ropa_verde'],S).
+append_estado(X,S):- esta_feliz(X),append(S,['esta_feliz'],S);esta_triste(X),append(S,['esta_triste'],S).
+append_ojos(X,S):-   tiene_ojos_azules(X),append(S,['tiene_ojos_azules'],S);tiene_ojos_marrones(X),append(S,['tiene_ojos_marrones'],S).
                               
                               
 
