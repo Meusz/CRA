@@ -1,5 +1,4 @@
-:-consult(ejecucion1),
-
+:-consult(ejecucion1).
 
 
 /*-----------------------------------------------------------------
@@ -7,26 +6,32 @@
 --------------------------------------------------------------------*/
 
 %---------------Programa main---------------
-write('\tBIENVENIDO A QUIEN ES QUIEN\t\n\n'),write('En este juego tenemos varios niveles: medio, avanzado \n Escoja uno seguido de un punto\n\t'),
-read(D),write('\n\nEscogiste el nivel de dificultad '),write(D),write('\n\n'),
-personaje(P),length(P,Numero),                    %Obtengo el numero de personajes posibles del juego
+jugar:-
+       Listainicial =['Albert', 'Paul', 'Tom', 'Derek', 'Richard', 'Louis', 'Michael', 'Charles', 'Sam', 'Steve', 'Will', 'Anthony', 'Billy','Henry' , 'Tiffany' , 'Natalie', 'Roxanne', 'Sarah', 'Sabrina', 'Cindy', 'Emma'],
+       escoger_dificultad(Difi),
+       obtener_personajes(Personaje1,Personaje2),
+       jugar_aux(Listainicial,Listainicial,Personaje1,Personaje2).
 
-%Obtenemos un personaje aleatorio para el Jugador1
-random(0,Numero,X),                                %Obtengo el numero aleatorio para seleccionar un personaje
-nth1(X,P,Personaje1),
+jugar_aux(Listainicial1,Listainicial2,Personaje1,Personaje2):-
+                                                              turno_jugador(Personaje1,Personaje2,Listainicial1, Listafinal1),
+                                                              turno_maquina(Personaje1,Personaje2,Listainicial2, Listafinal2)
+                                                              %jugar_aux(Listafinal1,Listainicial2,Personaje1,Personaje2)
+                                                              .
+                                                              
+turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
+               write('\t\tEs tu Turno\n'),
+               caracteristicas(Personaje1),
+               hacer_pregunta(Pregunta),
+               pregunta_valida(Personaje2,Pregunta,Listainicial, Listafinal),
+               posibles_personajes(Listafinal).
+turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal):-
+                                                  write('\t\tAhora te hago yo una pregunta:\n'),
+                                                  pregunta_aleatoria(Pregunta),
+                                                  write(Pregunta2),write('?\n'),
+                                                  pregunta_valida_maquina(Personaje1,Pregunta,Listainicial, Listafinal),
+                                                  list_longitud(Listafinal,N),
+                                                  write('Por lo tanto, aún dudo entre '),write(N),write('posibilidades.\n\n')
+                                                  .
 
-%Obtenemos otro personaje aleatorio para el Jugador2
-
-random(0,Numero,Y),
-nth1(Y,P,Personaje2),
-
-write('\n'),
-
-write('Te recuerdo sus características:\n'),
-lista_caracteristicas(Personaje1,S), write(S).
 
 
-
-
-
-:-write('\n\nFIN.').
