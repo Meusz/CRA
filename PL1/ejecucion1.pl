@@ -108,11 +108,13 @@ posibles_personajes_aux([X|Cola]):-
                                    posibles_personajes_aux(Cola), !.
                                    posibles_personajes_aux(_).
                                    
-pregunta_aleatoria(Pregunta):-
-                              preguntas(P),length(P,Numero),                    %Obtengo el numero de personajes posibles del juego
+pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final):-
+                              length(Preguntas_validas,Numero),                    %Obtengo el numero de personajes posibles del juego
                               %Obtenemos un personaje aleatorio para el Jugador1
-                              random(0,Numero,X),                                %Obtengo el numero aleatorio para seleccionar un personaje
-                              nth1(X,P,Pregunta).
+                              random(0,Numero,X),write(Numero),write('  '),write(X),write('  '),write(Preguntas_validas),                                %Obtengo el numero aleatorio para seleccionar un personaje
+                              nth1(X,Preguntas_validas,Pregunta),
+                              select(Pregunta,Preguntas_validas,Preguntas_final)
+                              .
 
 /*CALCULO DE LONGITUD*/
 list_longitud([_|Y],N):- list_longitud(Y,N1), N is N1 + 1.

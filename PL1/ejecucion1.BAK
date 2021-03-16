@@ -87,6 +87,16 @@ pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
                                                  lista_personajes_validos(Listainicial,Pregunta,Listafinal);
                                                  write('La respuesta es negativa\n'),
                                                  lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) ).
+                                                 
+pregunta_valida_maquina(Personaje,Pregunta,Listainicial, Listafinal):-
+                                                 write('\nLa pregunta es : '),write(Pregunta),write('\n\n'),
+                                                 write('\nEl personaje es : '),write(Personaje),write('\n\n'),
+                                                 lista_caracteristicas(Personaje,R),
+                                                 (member(Pregunta,R),  write('La respuesta a la pregunta es afirmativa.\n'),
+                                                 lista_personajes_validos(Listainicial,Pregunta,Listafinal);
+                                                 write('La respuesta a la pregunta es negativa.\n'),
+                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) ).
+
 
 posibles_personajes(Listafinal):-
                                  write('\nYa sabes que soy uno de los personajes de la siguiente lista:\n\n'),
@@ -98,12 +108,17 @@ posibles_personajes_aux([X|Cola]):-
                                    posibles_personajes_aux(Cola), !.
                                    posibles_personajes_aux(_).
                                    
-pregunta_aleatoria(Pregunta):-
-                              preguntas(P),length(P,Numero),                    %Obtengo el numero de personajes posibles del juego
+pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final):-
+                              length(Preguntas_validas,Numero),                    %Obtengo el numero de personajes posibles del juego
                               %Obtenemos un personaje aleatorio para el Jugador1
-                              random(0,Numero,X),                                %Obtengo el numero aleatorio para seleccionar un personaje
-                              nth1(X,P,Pregunta).
+                              random(0,Numero,X),write(Numero),write('  '),write(X),                                %Obtengo el numero aleatorio para seleccionar un personaje
+                              nth1(X,P,Pregunta),
+                              select(Pregunta,Preguntas_validas,Preguntas_final)
+                              .
 
+/*CALCULO DE LONGITUD*/
+list_longitud([_|Y],N):- list_longitud(Y,N1), N is N1 + 1.
+list_longitud([],N):- N is 0.
 
                               
                               
