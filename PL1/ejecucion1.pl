@@ -7,6 +7,7 @@ turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
                write('\t\tEs tu Turno\n'),
                caracteristicas(Personaje1),
                hacer_pregunta(Pregunta),
+               write(Pregunta),write('\n\n'),
                pregunta_valida(Personaje2,Pregunta,Listainicial, Listafinal),
                posibles_personajes(Listafinal).
 
@@ -16,7 +17,15 @@ turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,P
                                                   write(Pregunta),write('?\n'),
                                                   pregunta_valida_maquina(Personaje1,Pregunta,Listainicial, Listafinal),
                                                   list_longitud(Listafinal,N),
-                                                  write('Por lo tanto, aún dudo entre '),write(N),write('posibilidades.\n\n')
+                                                  write('Por lo tanto, aún dudo entre '),write(N),write(' posibilidades.\n\n')
+                                                  .
+turno_maquina_avanzado(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
+                                                  write('\t\tAhora te hago yo una pregunta:\n'),
+                                                  pregunta_avanzada(Pregunta,Listainicial),
+                                                  write(Pregunta),write('?\n'),
+                                                  pregunta_valida_maquina(Personaje1,Pregunta,Listainicial, Listafinal),
+                                                  list_longitud(Listafinal,N),
+                                                  write('Por lo tanto, aún dudo entre '),write(N),write(' posibilidades.\n\n')
                                                   .
 
 
@@ -44,17 +53,18 @@ caracteristicas(Personaje):-
 
 hacer_pregunta(Pregunta):-
               write('\n\nElige de entre las siguientes preguntas una que quieras hacerme y escríbela\ncambiando la interrogación por un punto: chico?, chica?, gafas?'),
-              write('\n,pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?\n'),
+              write('\n,pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?\n '),
               read(Pregunta).
               
 pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
+                                                 (es_pregunta(Pregunta),
                                                  write('\nLa pregunta es : '),write(Pregunta),write('\n\n'),
                                                  write('\nTu personaje es : '),write(Personaje),write('\n\n'),
                                                  lista_caracteristicas(Personaje,R),
                                                  (member(Pregunta,R),  write('La respuesta es positiva\n'),
                                                  lista_personajes_validos(Listainicial,Pregunta,Listafinal);
                                                  write('La respuesta es negativa\n'),
-                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) ).
+                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) )).
                                                  
 pregunta_valida_maquina(Personaje,Pregunta,Listainicial, Listafinal):-
                                                  write('\nLa pregunta es : '),write(Pregunta),write('\n\n'),
@@ -83,6 +93,37 @@ pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final):-
                               nth1(X,Preguntas_validas,Pregunta),
                               select(Pregunta,Preguntas_validas,Preguntas_final)
                               .
+
+pregunta_avanzada(Pregunta,ListaPersonajes):-
+                              length(ListaPersonajes,Numero),                    %Obtengo el numero de personajes posibles del juego
+                              %Obtenemos un personaje aleatorio para el Jugador1
+                              Mitad is Numero//2,                                %Obtengo el numero aleatorio para seleccionar un personaje
+                              (
+                                    cuantos_chicos(ListaPersonajes,Num_chicos),mas_o_menos_igual(Num_chicos,Mitad)  ,Pregunta = 'chico' ;
+                                    (
+                                        cuantos_pelo_rubio(ListaPersonajes,Num_Pelo_rubio),mas_o_menos_igual(Num_Pelo_rubio,Mitad),Pregunta = 'pelo_rubio' ;
+                                        (
+                                            cuantos_ropa_roja(ListaPersonajes,Num_ropa_roja),mas_o_menos_igual(Num_ropa_roja,Mitad),Pregunta = 'ropa_roja' ;
+                                                (
+                                                     cuantos_feliz(ListaPersonajes,Num_feliz),mas_o_menos_igual(Num_feliz,Mitad),Pregunta = 'feliz' ;
+                                                     (
+                                                            cuantos_ojos_azules(ListaPersonajes,Num_ojos_azules),mas_o_menos_igual(Num_ojos_azules,Mitad),Pregunta = 'ojos_azules';
+                                                            cuantos_gafas(ListaPersonajes,Num_gafas),mas_o_menos_igual(Num_gafas,Mitad),Pregunta = 'gafas'
+                                                     )
+                                                )
+                                        )
+                                    )
+                              )
+                              .
+mas_o_menos_igual(N,X):-
+                        X=1,N=X; X > 1,
+                        (Inferior is X-1,N = Inferior;
+                                    (N = X;
+                                          Superior is X+1, N = Superior
+                                    )
+                        ), N > 0 .
+
+                              
 
                               
 

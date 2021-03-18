@@ -13,8 +13,6 @@ tiene_ojos_azules(Y):- ojos_azules(X),member(Y,X).                 %,write(true)
 tiene_ojos_marrones(Y):- ojos_marrones(X),member(Y,X).                 %,write(true).
 lleva_gafas(Y):- gafas(X),member(Y,X).                                 %,write(true).
 no_lleva_gafas(Y):- no_gafas(X),member(Y,X).                           %,write(true).
-es_pregunta(Y):- preguntas(X),member(Y,X).
-es_personaje(Y):- personaje(X),member(Y,X).
 
 
 %------------------------CONSULTAS PARA EL PROGRAMA---------------
