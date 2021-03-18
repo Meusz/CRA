@@ -1,4 +1,4 @@
-personaje([/*'Albert', 'Paul', 'Tom', 'Derek', 'Richard', 'Louis', 'Michael', 'Charles', 'Sam', 'Steve', 'Will', 'Anthony', 'Billy',*/ 'Henry', 'Tiffany', 'Natalie', 'Roxanne', 'Sarah', 'Sabrina', 'Cindy', 'Emma']).
+personaje(['Albert', 'Paul', 'Tom', 'Derek', 'Richard', 'Louis', 'Michael', 'Charles', 'Sam', 'Steve', 'Will', 'Anthony', 'Billy', 'Henry', 'Tiffany', 'Natalie', 'Roxanne', 'Sarah', 'Sabrina', 'Cindy', 'Emma']).
 chico(['Albert', 'Paul', 'Tom', 'Derek', 'Richard', 'Louis', 'Michael', 'Charles', 'Sam', 'Steve', 'Will', 'Anthony', 'Billy', 'Henry']).
 chica(['Tiffany', 'Natalie', 'Roxanne', 'Sarah', 'Sabrina', 'Cindy', 'Emma']).
 pelo_rubio(['Paul', 'Michael', 'Sam', 'Will', 'Anthony', 'Billy', 'Natalie', 'Roxanne', 'Emma']).
