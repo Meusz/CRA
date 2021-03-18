@@ -32,21 +32,5 @@ jugar_aux(Listainicial1,Listainicial2,Personaje1,Personaje2,Preguntas_validas):-
                                                               jugar_aux(Listafinal1,Listafinal2,Personaje1,Personaje2,Preguntas_final))
                                                               .
                                                               
-turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
-               write('\t\tEs tu Turno\n'),
-               caracteristicas(Personaje1),
-               hacer_pregunta(Pregunta),
-               pregunta_valida(Personaje2,Pregunta,Listainicial, Listafinal),
-               posibles_personajes(Listafinal).
-               
-turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
-                                                  write('\t\tAhora te hago yo una pregunta:\n'),
-                                                  pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final),
-                                                  write(Pregunta),write('?\n'),
-                                                  pregunta_valida_maquina(Personaje1,Pregunta,Listainicial, Listafinal),
-                                                  list_longitud(Listafinal,N),
-                                                  write('Por lo tanto, aún dudo entre '),write(N),write('posibilidades.\n\n')
-                                                  .
-
 
 

@@ -38,6 +38,7 @@ turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
                hacer_pregunta(Pregunta),
                pregunta_valida(Personaje2,Pregunta,Listainicial, Listafinal),
                posibles_personajes(Listafinal).
+               
 turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
                                                   write('\t\tAhora te hago yo una pregunta:\n'),
                                                   pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final),
