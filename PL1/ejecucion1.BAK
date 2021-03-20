@@ -20,7 +20,7 @@ turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
                                                   posibles_personajes(Listafinal).
 
 
-turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
+turno_maquina(Personaje1,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
                                                   /*Durante el turno de la maquina de nivel medio, se debe obtener la pregunta.
                                                   Esta pregunta la obtendra de forma aleatoria, a partir de una lista de preguntas que
                                                   puede realizar. Notese que no puede obtener preguntas repetidas de la lista.
@@ -33,7 +33,7 @@ turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,P
                                                   list_longitud(Listafinal,N),
                                                   write('\t'),write('Por lo tanto, aún dudo entre '),write(N),write(' posibilidades.\n\n')
                                                   .
-turno_maquina_avanzado(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
+turno_maquina_avanzado(Personaje1,Listainicial, Listafinal):-
                                                            /*Durante el turno de la maquina de nivel avanzado, se debe obtener la pregunta.
                                                            Esta pregunta la obtendra de forma razonada. Es decir, mediante una busqueda binaria,
                                                            la maquina descubrira que pregunta es mas eficiente de realizar. Esta busqueda razonada
@@ -76,6 +76,7 @@ hacer_pregunta(Pregunta):-
                           /*Se lee dede consola la pregunta que quiera realizar el jugador. Antes se le ha escrito por consola un texto para saber que escribir*/
                           write('\n\nElige de entre las siguientes preguntas una que quieras hacerme y escríbela\ncambiando la interrogación por un punto: chico?, chica?, gafas?'),
                           write('\n,pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde? , gorra?, no_gorra, pelo_largo?, pelo_corto?\n '),
+                          write('Tambien, puedes resolver diciendo el nombre del perosnaje de la maquina, para ello escribe \'nombre_personaje\'\n'),
                           read(Pregunta).
               
 pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
@@ -84,7 +85,7 @@ pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
                                                  Por lo que al final obtendra una lista reducida con los personajes que aun no fueron descartados.
                                                  Tambien, comprueba si ha dicho el nombre de un personaje y si lo ha adivinado.
                                                  */
-                                                 (es_pregunta(Pregunta),
+                                                 ((es_pregunta(Pregunta),
                                                  lista_caracteristicas(Personaje,R),
                                                  (member(Pregunta,R),  write('La respuesta es positiva\n'),
                                                  lista_personajes_validos(Listainicial,Pregunta,Listafinal);
@@ -95,7 +96,8 @@ pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
                                                     Listafinal=[Pregunta];
                                                     write('No acertaste al Personaje final'),
                                                     Listafinal = Listainicial)
-                                                 )
+                                                 ));
+                                                 write('La pregunta no ha sido valida'), Listafinal = Listainicial
                                                  .
                                                  
 pregunta_valida_maquina(Personaje,Pregunta,Listainicial, Listafinal):-

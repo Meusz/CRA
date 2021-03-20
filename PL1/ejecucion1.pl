@@ -75,7 +75,8 @@ caracteristicas(Personaje):-
 hacer_pregunta(Pregunta):-
                           /*Se lee dede consola la pregunta que quiera realizar el jugador. Antes se le ha escrito por consola un texto para saber que escribir*/
                           write('\n\nElige de entre las siguientes preguntas una que quieras hacerme y escríbela\ncambiando la interrogación por un punto: chico?, chica?, gafas?'),
-                          write('\n,pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde? , gorra?, no_gorra, pelo_largo?, pelo_corto?\n '),
+                          write('\n,pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde? , gorra?, no_gorra, pelo_largo?, pelo_corto?\n'),
+                          write('Tambien, puedes resolver diciendo el nombre del perosnaje de la maquina, para ello escribe \'nombre_personaje\'\n'),
                           read(Pregunta).
               
 pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
