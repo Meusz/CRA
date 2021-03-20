@@ -33,7 +33,7 @@ lista_personajes_validos_aux([X|Cola],Pregunta,Salida,Cambiante):-
                                                        (member(Pregunta,R),
                                                        lista_personajes_validos_aux(Cola,Pregunta,Salida,[X|Cambiante]);
                                                        lista_personajes_validos_aux(Cola,Pregunta,Salida,Cambiante)), !.
-                                                       lista_personajes_validos_aux(_,Pregunta,Cambiante,Cambiante).
+                                                       lista_personajes_validos_aux(_,_,Cambiante,Cambiante).
 
 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal):- lista_personajes_no_validos_aux(Listainicial,Pregunta,Listafinal,[]).
 lista_personajes_no_validos_aux([X|Cola],Pregunta,Salida,Cambiante):-
@@ -41,7 +41,7 @@ lista_personajes_no_validos_aux([X|Cola],Pregunta,Salida,Cambiante):-
                                                        (not(member(Pregunta,R)),
                                                        lista_personajes_no_validos_aux(Cola,Pregunta,Salida,[X|Cambiante]);
                                                        lista_personajes_no_validos_aux(Cola,Pregunta,Salida,Cambiante)), !.
-                                                       lista_personajes_no_validos_aux(_,Pregunta,Cambiante,Cambiante).
+                                                       lista_personajes_no_validos_aux(_,_,Cambiante,Cambiante).
 
 
 
@@ -74,7 +74,7 @@ append_longitud_pelo(X,S,R):-   tiene_pelo_corto(X),append(S,['pelo_corto'],R);t
 
 /*Calcular el numero de personajes que cumplen cierta caracteristica*/
 cuantos_chicos([X|Cola],N):-
-                            cuantos_chicos_aux(Cola,N1),
+                            cuantos_chicos(Cola,N1),
                             (es_chico(X), N is N1 + 1; N is N1), !.
 cuantos_chicos([],N):- N is 0.
                             

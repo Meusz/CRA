@@ -20,7 +20,7 @@ turno_jugador(Personaje1,Personaje2,Listainicial, Listafinal):-
                                                   posibles_personajes(Listafinal).
 
 
-turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
+turno_maquina(Personaje1,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
                                                   /*Durante el turno de la maquina de nivel medio, se debe obtener la pregunta.
                                                   Esta pregunta la obtendra de forma aleatoria, a partir de una lista de preguntas que
                                                   puede realizar. Notese que no puede obtener preguntas repetidas de la lista.
@@ -33,7 +33,7 @@ turno_maquina(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,P
                                                   list_longitud(Listafinal,N),
                                                   write('\t'),write('Por lo tanto, aún dudo entre '),write(N),write(' posibilidades.\n\n')
                                                   .
-turno_maquina_avanzado(Personaje1,Personaje2,Listainicial, Listafinal,Preguntas_validas,Preguntas_final):-
+turno_maquina_avanzado(Personaje1,Listainicial, Listafinal):-
                                                            /*Durante el turno de la maquina de nivel avanzado, se debe obtener la pregunta.
                                                            Esta pregunta la obtendra de forma razonada. Es decir, mediante una busqueda binaria,
                                                            la maquina descubrira que pregunta es mas eficiente de realizar. Esta busqueda razonada
@@ -82,15 +82,22 @@ pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
                                                  /*
                                                  Se comprueba que la pregunta es valida, y se procesa la lista de personajes que el personaje no ha descartado.
                                                  Por lo que al final obtendra una lista reducida con los personajes que aun no fueron descartados.
+                                                 Tambien, comprueba si ha dicho el nombre de un personaje y si lo ha adivinado.
                                                  */
-                                                 (es_pregunta(Pregunta),
-                                                 write('\nLa pregunta es : '),write(Pregunta),write('\n\n'),
-                                                 write('\nTu personaje es : '),write(Personaje),write('\n\n'),
+                                                 ((es_pregunta(Pregunta),
                                                  lista_caracteristicas(Personaje,R),
                                                  (member(Pregunta,R),  write('La respuesta es positiva\n'),
                                                  lista_personajes_validos(Listainicial,Pregunta,Listafinal);
                                                  write('La respuesta es negativa\n'),
-                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) )).
+                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) ));
+                                                 (es_personaje(Pregunta),
+                                                   (Pregunta = Personaje, write('Acertaste al Personaje final'),
+                                                    Listafinal=[Pregunta];
+                                                    write('No acertaste al Personaje final'),
+                                                    Listafinal = Listainicial)
+                                                 ));
+                                                 write('La pregunta no ha sido valida'), Listafinal = Listainicial
+                                                 .
                                                  
 pregunta_valida_maquina(Personaje,Pregunta,Listainicial, Listafinal):-
                                                          /*

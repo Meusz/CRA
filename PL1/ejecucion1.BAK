@@ -82,15 +82,21 @@ pregunta_valida(Personaje,Pregunta,Listainicial, Listafinal):-
                                                  /*
                                                  Se comprueba que la pregunta es valida, y se procesa la lista de personajes que el personaje no ha descartado.
                                                  Por lo que al final obtendra una lista reducida con los personajes que aun no fueron descartados.
+                                                 Tambien, comprueba si ha dicho el nombre de un personaje y si lo ha adivinado.
                                                  */
                                                  (es_pregunta(Pregunta),
-                                                 write('\nLa pregunta es : '),write(Pregunta),write('\n\n'),
-                                                 write('\nTu personaje es : '),write(Personaje),write('\n\n'),
                                                  lista_caracteristicas(Personaje,R),
                                                  (member(Pregunta,R),  write('La respuesta es positiva\n'),
                                                  lista_personajes_validos(Listainicial,Pregunta,Listafinal);
                                                  write('La respuesta es negativa\n'),
-                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) )).
+                                                 lista_personajes_no_validos(Listainicial,Pregunta,Listafinal) ));
+                                                 (es_personaje(Pregunta),
+                                                   (Pregunta = Personaje, write('Acertaste al Personaje final'),
+                                                    Listafinal=[Pregunta];
+                                                    write('No acertaste al Personaje final'),
+                                                    Listafinal = Listainicial)
+                                                 )
+                                                 .
                                                  
 pregunta_valida_maquina(Personaje,Pregunta,Listainicial, Listafinal):-
                                                          /*
@@ -128,9 +134,9 @@ pregunta_aleatoria(Pregunta,Preguntas_validas,Preguntas_final):-
                                                                 .
 
 pregunta_avanzada(Pregunta,ListaPersonajes):-
-                                               /*La maquina usara una busqueda en la que buscara dividir la lista en dos constantemente, hasta dar con la solucion.
-                                               Para ello, obtendra la mitad de la lista y contara que dato se aproxima a la mitad de la lista. Para solo ir obteniendo
-                                               tras cada turno la mitad de esta*/
+                                              /*La maquina usara una busqueda en la que buscara dividir la lista en dos constantemente, hasta dar con la solucion.
+                                              Para ello, obtendra la mitad de la lista y contara que dato se aproxima a la mitad de la lista. Para solo ir obteniendo
+                                              tras cada turno la mitad de esta*/
                                               length(ListaPersonajes,Numero),                    %Obtengo el numero de personajes posibles del juego
                                               %Obtenemos un personaje aleatorio para el Jugador1
                                               Mitad is Numero//2,                                %Obtengo el numero aleatorio para seleccionar un personaje

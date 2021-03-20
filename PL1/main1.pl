@@ -15,7 +15,7 @@ jugar:-
        (
               Difi == 'medio',write('Escogiste, nivel medio'), jugar_aux(Listainicial,Listainicial,Personaje1,Personaje2,Preguntas_validas)
                         ;
-              Difi == 'avanzado',write('Escogiste, nivel avanzado'), jugar_aux_avanzado(Listainicial,Listainicial,Personaje1,Personaje2,Preguntas_validas)
+              Difi == 'avanzado',write('Escogiste, nivel avanzado'), jugar_aux_avanzado(Listainicial,Listainicial,Personaje1,Personaje2)
        )
       .
 
@@ -28,17 +28,17 @@ jugar:-
 jugar_aux(Listainicial1,Listainicial2,Personaje1,Personaje2,Preguntas_validas):-
                                                                                 /*Jugamos al nivel medio del juego*/
                                                               turno_jugador(Personaje1,Personaje2,Listainicial1, Listafinal1),
-                                                              turno_maquina(Personaje1,Personaje2,Listainicial2, Listafinal2,Preguntas_validas,Preguntas_final),
+                                                              turno_maquina(Personaje2,Listainicial2, Listafinal2,Preguntas_validas,Preguntas_final),
                                                               (se_acabo(Listafinal1,Listafinal2);
                                                               jugar_aux(Listafinal1,Listafinal2,Personaje1,Personaje2,Preguntas_final))
                                                               .
 
-jugar_aux_avanzado(Listainicial1,Listainicial2,Personaje1,Personaje2,Preguntas_validas):-
+jugar_aux_avanzado(Listainicial1,Listainicial2,Personaje1,Personaje2):-
                                                                                          /*Jugamos al nivel avanzado del juego*/
                                                               turno_jugador(Personaje1,Personaje2,Listainicial1, Listafinal1),
-                                                              turno_maquina_avanzado(Personaje1,Personaje2,Listainicial2, Listafinal2,Preguntas_validas,Preguntas_final),
+                                                              turno_maquina_avanzado(Personaje2,Listainicial2, Listafinal2),
                                                               (se_acabo(Listafinal1,Listafinal2);
-                                                              jugar_aux_avanzado(Listafinal1,Listafinal2,Personaje1,Personaje2,Preguntas_final))
+                                                              jugar_aux_avanzado(Listafinal1,Listafinal2,Personaje1,Personaje2))
                                                               .
                                                               
 se_acabo(Lista1,Lista2):-
