@@ -3,15 +3,21 @@
 oracion(o(GN,GV)) --> g_nominal(GN), g_verbal(GV).
 
 o --> gn, gv.
-%Sintagma Nominal
+%Grupo Nominal
 g_nominal(gn(N)) --> nombre(N).
 g_nominal(gn(D,N)) --> determinante(D), nombre(N).
 
+%Reglas
 gn --> nombre.
 gn --> det, nombre.
 gn --> det, nombre, adjetivo.
 gn --> nombre, adjetivo.
-%Sintagma Preposicional
+
+%Grupo Verbal
+g_verbal(gv(V)) --> verbo(V).
+g_verbal(gv(V,GN)) --> verbo(V), g_nominal(GN).
+
+%Reglas
 gv --> verbo.
 gv --> verbo, gn.
 gv --> verbo, adjetivo.
@@ -59,7 +65,7 @@ nombre_propio(juan).
 
 
 %VERBOS
-verbo(n(X)) --> [X],{v(X)}.
+verbo(v(X)) --> [X],{v(X)}.
 
 v(ama).
 v(come).

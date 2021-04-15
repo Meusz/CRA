@@ -2,7 +2,7 @@
 %:-consult(ejercicio_3_1).
 
 
-test1:- oracion([el,hombre,come,una,manzana],[]).
+test1:- oracion(X,[el,hombre,come,una,manzana],[]).
 
 test2:- oracion([la,mujer,come,manzanas],[]).
 
