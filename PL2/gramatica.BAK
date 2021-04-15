@@ -6,18 +6,22 @@ o --> gn, gv.
 %Grupo Nominal
 g_nominal(gn(N)) --> nombre(N).
 g_nominal(gn(D,N)) --> determinante(D), nombre(N).
+g_nominal(gn(D,N,A)) --> determinante(D), nombre(N), adjetivo(A).
 
-
-%Grupo Verbal
-g_verbal(gv(V)) --> verbo(V).
-g_verbal(gv(V,GN)) --> verbo(V), g_nominal(GN).
-
+%Reglas
 gn --> nombre.
 gn --> det, nombre.
 gn --> det, nombre, adjetivo.
 gn --> nombre, adjetivo.
 
-%Sintagma Preposicional
+%Grupo Verbal
+g_verbal(gv(V)) --> verbo(V).
+g_verbal(gv(V,GN)) --> verbo(V), g_nominal(GN).
+g_verbal(gv(V,GN)) --> verbo(V), g_preposicional(GN).
+g_verbal(gv(V,GN)) --> verbo(V), g_adjetival(GN).
+
+
+%Reglas
 gv --> verbo.
 gv --> verbo, gn.
 gv --> verbo, adjetivo.
@@ -28,7 +32,11 @@ g_preposicional(gprep(PREP,GN)) --> preposicion(PREP),g_nominal(GN).
 gprep --> prep, gn.
 
 %Sintagma Adjetival
-gadj --> _.
+g_adjetival --> (gadj(ADJ)) --> adjetivo(ADJ).
+g_adjetival --> (gadj(ADJ,GN)) --> adjetivo(ADJ), g_nominal (GN).
+
+gadj --> adj.
+gadj --> adj, gn.
 %Diccionario
 
 %DETERMINANTES
@@ -57,6 +65,7 @@ n(manzana).
 n(manzanas).
 n(gato).
 n(ratón).
+n(ratones).
 n(alumno).
 n(universidad).
 n --> nombre_propio.
@@ -70,9 +79,10 @@ verbo(v(X)) --> [X],{v(X)}.
 v(ama).
 v(come).
 v(estudia).
+v(es).
 
 %ADJETIVOS
-
+adjetivo(adj(X))--> [X],{adj(X)}.
 
 adj(roja).
 adj(negro).
