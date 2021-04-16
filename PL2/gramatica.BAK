@@ -24,19 +24,23 @@ g_verbal(gv(V,GN)) --> verbo(V), g_adjetival(GN).
 %Reglas
 gv --> verbo.
 gv --> verbo, gn.
-gv --> verbo, adjetivo.
+gv --> verbo, gadj.
 
 %Sintagma Preposicional
 g_preposicional(gprep(PREP,GN)) --> preposicion(PREP),g_nominal(GN).
 
 gprep --> prep, gn.
 
-%Sintagma Adjetival
-g_adjetival --> (gadj(ADJ)) --> adjetivo(ADJ).
-g_adjetival --> (gadj(ADJ,GN)) --> adjetivo(ADJ), g_nominal (GN).
+%Sintagma Adjetival           complemento_adjetivo
+g_adjetival(gadj(ADJ)) --> adjetivo(ADJ).
+g_adjetival(gadj(INT,ADJ)) --> intensificador(INT), adjetivo(ADJ).
+g_adjetival(gadj(INT,ADJ,COMP_ADJ)) --> intensificador(INT), adjetivo(ADJ), complemento_adjetivo(COMP_ADJ).
+g_adjetival(gadj(ADJ,COMP_ADJ)) --> adjetivo(ADJ), complemento_adjetivo(COMP_ADJ).
 
 gadj --> adj.
-gadj --> adj, gn.
+gadj --> int, adj.
+gadj --> int, adj,comp_adj.
+gadj --> adj,comp_adj.
 %Diccionario
 
 %DETERMINANTES
@@ -89,6 +93,32 @@ adj(negro).
 adj(grande).
 adj(gris).
 adj(pequeño).
+adj(rápida).
+adj(rápido).
+adj(fácil).
+adj(raro).
+adj(harto).
+
+%INTENSIFICADORES
+intensificador(int(X))--> [X],{int(X)}.
+
+%adverbios de cantidad
+int(muy).
+int(tan).
+int(bastante).
+int(extremadamente).
+%adverbios exclamativos
+int(cuán).
+int(qué).
+%locución adverbial cuantitativa
+int(un poco).
+
+%COMPLEMENTOS DEL ADJETIVO
+complemento_adjetivo(comp_adj(X))--> [X],{comp_adj(X)}.
+
+comp_adj(de todo).
+comp_adj(de esperanza).
+comp_adj(de sí mismo).
 
 %PREPOSICIONES
 preposicion(prep(X)) --> [X],{prep(X)}.
