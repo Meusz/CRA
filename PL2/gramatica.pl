@@ -1,4 +1,6 @@
-% Reglas gramaticales
+% REGLAS GRAMATICALES
+
+% GRAMATICA
 %Regla de una oracion
 oracion(o(GN,GV)) --> g_nominal(GN), g_verbal(GV).
 
@@ -6,19 +8,28 @@ o --> gn, gv.
 %Grupo Nominal
 g_nominal(gn(N)) --> nombre(N).
 g_nominal(gn(D,N)) --> determinante(D), nombre(N).
-g_nominal(gn(D,N,A)) --> determinante(D), nombre(N), adjetivo(A).
+g_nominal(gn(D,N,A)) --> determinante(D), nombre(N), g_adjetival(A).
+g_nominal(gn(N,A)) --> nombre(N), g_adjetival(A).
+g_nominal(gn(D,N,A)) --> determinante(D), nombre(N), g_preposicional(A).
+g_nominal(gn(D,N,A)) --> determinante(D), nombre(N), g_preposicional(A).
+g_nominal(gn(N)) --> nombre_propio(N).
+
 
 %Reglas
 gn --> nombre.
 gn --> det, nombre.
-gn --> det, nombre, adjetivo.
-gn --> nombre, adjetivo.
+gn --> det, nombre, gadj.
+gn --> nombre, gadj.
+gn --> det, nombre, gp.
+gn --> nombre, gp.
+gn --> np.
 
 %Grupo Verbal
 g_verbal(gv(V)) --> verbo(V).
 g_verbal(gv(V,GN)) --> verbo(V), g_nominal(GN).
-g_verbal(gv(V,GN)) --> verbo(V), g_preposicional(GN).
-g_verbal(gv(V,GN)) --> verbo(V), g_adjetival(GN).
+g_verbal(gv(V,GP)) --> verbo(V), g_preposicional(GP).
+g_verbal(gv(V,GADJ)) --> verbo(V), g_adjetival(GADJ).
+g_verbal(gv(V,GADV)) --> verbo(V), g_adverbial(GADV).
 
 
 %Reglas
@@ -27,11 +38,11 @@ gv --> verbo, gn.
 gv --> verbo, gadj.
 
 %Sintagma Preposicional
-g_preposicional(gprep(PREP,GN)) --> preposicion(PREP),g_nominal(GN).
+g_preposicional(gp(PREP,GN)) --> preposicion(PREP),g_nominal(GN).
 
-gprep --> prep, gn.
+gp --> prep, gn.
 
-%Sintagma Adjetival           complemento_adjetivo
+%Sintagma Adjetival
 g_adjetival(gadj(ADJ)) --> adjetivo(ADJ).
 g_adjetival(gadj(INT,ADJ)) --> intensificador(INT), adjetivo(ADJ).
 g_adjetival(gadj(INT,ADJ,COMP_ADJ)) --> intensificador(INT), adjetivo(ADJ), complemento_adjetivo(COMP_ADJ).
@@ -41,7 +52,19 @@ gadj --> adj.
 gadj --> int, adj.
 gadj --> int, adj,comp_adj.
 gadj --> adj,comp_adj.
-%Diccionario
+
+%Sintagma Adverbial
+g_adverbial(gadv(ADV)) --> adverbio(ADV).
+g_adverbial(gadv(INT,ADV)) --> intensificador(INT),adverbio(ADV).
+g_adverbial(gadv(INT,ADV,GP)) --> intensificador(INT),adverbio(ADV), g_preposicional(GP).
+g_adverbial(gadv(ADV,GP)) --> gadv(ADV), g_preposicional(GP).
+
+gadv --> adv.
+gadv --> int,adv.
+gadv --> int,adv,gp.
+gadv --> adv, gp.
+
+% LEXICO
 
 %DETERMINANTES
 determinante(det(X)) --> [X],{det(X)}.
@@ -63,8 +86,6 @@ nombre(n(X)) --> [X],{n(X)}.
 
 n(hombre).
 n(mujer).
-n(juan).
-n(maría).
 n(manzana).
 n(manzanas).
 n(gato).
@@ -72,9 +93,33 @@ n(ratón).
 n(ratones).
 n(alumno).
 n(universidad).
-n --> nombre_propio.
-nombre_propio(maría).
-nombre_propio(juan).
+n(mesa).
+n(derecho).
+n(filosofía).
+n(café).
+n(novela).
+n(paella).
+n(periódico).
+n(patatas).
+n(cerveza).
+n(zumo).
+n(tardes).
+n(rocódromo).
+n(herramienta).
+n(procesador).
+n(documentos).
+n(gato).
+n(vecino).
+
+%Nombres propios
+
+nombre_propio(np(X)) --> [X],{np(X)}.
+
+
+np(maría).
+np(juan).
+np(héctor).
+np(irene).
 
 
 %VERBOS
@@ -84,6 +129,19 @@ v(ama).
 v(come).
 v(estudia).
 v(es).
+v(toma).
+v(recoge).
+v(lee).
+v(comen).
+v(beben).
+v(prefiere).
+v(canta).
+v(salta).
+v(escala).
+v(sirve).
+v(escribir).
+v(cazó).
+v(vimos).
 
 %ADJETIVOS
 adjetivo(adj(X))--> [X],{adj(X)}.
@@ -98,6 +156,23 @@ adj(rápido).
 adj(fácil).
 adj(raro).
 adj(harto).
+adj(fritas).
+adj(alta).
+adj(lento).
+
+%ADVERBIOS
+adverbio(adv(X))--> [X],{adv(X)}.
+
+adv(bien).
+adv(mal).
+adv(deprisa).
+adv(asi).
+adv(pequeño).
+adv(rápida).
+adv(rápido).
+adv(fácil).
+adv(solamente).
+adv(potente).
 
 %INTENSIFICADORES
 intensificador(int(X))--> [X],{int(X)}.
@@ -143,6 +218,16 @@ prep(so).
 prep(sobre).
 prep(tras).
 
+%PREPOSICIONES
+conjuncion(conj(X)) --> [X],{conj(X)}.
+conj(y).
+conj(e).
+conj(ni).
+conj(pero).
+conj(que).
+conj(mientras).
+conj(aunque).
+conj(mientras).
 /*
 EJEMPLOS
 oracion([el,hombre,come,una,manzana],[]).

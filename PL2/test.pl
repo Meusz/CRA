@@ -84,3 +84,57 @@ drawtest:-drawtest1,write('Frase 1 OK'),nl,
    drawtest9,write('Frase 9 OK'),nl,
 
    drawtest10,write('Frase 10 OK'), nl.
+   
+   
+   
+   
+   
+   
+/*-------------------------PL2 ---------------------------*/
+
+pl2test1:- oracion(X, [juan,es,moreno,y,maría,es,alta],[]),write(X).
+pl2test2:- oracion(X, [juan,estudia,filosofía,pero,maría,estudia,derecho],[]),write(X).
+pl2test3:- oracion(X, [maría,toma,un,café,mientras,juan,recoge,la,mesa],[]),write(X).
+pl2test4:- oracion(X, [juan,toma,café,y,lee,el,periódico],[]),write(X).
+pl2test5:- oracion(X, [juan,y,héctor,comen,patatas,fritas,y,beben,cerveza],[]),write(X).
+pl2test6:- oracion(X, [juan,come,patatas,fritas,pero,maría,prefiere,paella,aunque,héctor,toma,café,e,irene,lee,una,novela],[]),write(X).
+pl2test7:- oracion(X, [irene,canta,y,salta,mientras,juan,estudia],[]),write(X).
+pl2test8:- oracion(X, [héctor,come,patatas,fritas,y,bebe,zumo,mientras,juan,canta,y,salta,aunque,maría,lee,una,novela],[]),write(X).
+pl2test9:- oracion(X, [juan,que,es,ágil,escala,en,el,rocódromo,por,las,tardes],[]),write(X).
+pl2test10:- oracion(X, [juan,que,es,muy,delicado,come,solamente,manzanas,rojas],[]),write(X).
+pl2test11:- oracion(X, [el,procesador,de,textos,que,es,una,herramienta,bastante,potente,sirve,para,escribir,documentos],[]),write(X).
+pl2test12:- oracion(X, [el,procesador,de,textos,es,una,herramienta,muy,potente,que,sirve,para,escribir,documentos,pero,es,bastante,lento],[]),write(X).
+pl2test13:- oracion(X, [el,ratón,que,cazó,el,gato,era,gris],[]),write(X).
+pl2test14:- oracion(X, [el,hombre,que,vimos,ayer,era,mi,vecino],[]),write(X).
+
+
+pl2test:-pl2test1,write('Frase 1 OK'),nl,
+
+   pl2test2,write('Frase 2 OK'),nl,
+
+   pl2test3,write('Frase 3 OK'),nl,
+
+   pl2test4,write('Frase 4 OK'),nl,
+
+   pl2test5,write('Frase 5 OK'),nl,
+
+   pl2test6,write('Frase 6 OK'),nl,
+
+   pl2test7,write('Frase 7 OK'),nl,
+
+   pl2test8,write('Frase 8 OK'),nl,
+
+   pl2test9,write('Frase 9 OK'),nl,
+
+   pl2test10,write('Frase 10 OK'), nl,
+
+   pl2test11,write('Frase 11 OK'), nl,
+
+   pl2test12,write('Frase 12 OK'), nl,
+
+   pl2test13,write('Frase 13 OK'), nl,
+
+   pl2test14,write('Frase 14 OK'), nl   .
+
+
+
