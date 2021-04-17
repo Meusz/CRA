@@ -1,10 +1,54 @@
 % REGLAS GRAMATICALES
 
 % GRAMATICA
+%Regla de una oracion  compleja
+oracion_compuesta(ocm(OC)) --> oracion_coordinada(OC).
+oracion_compuesta(ocm(OS)) --> oracion_subordinada(OS).
+oracion_compuesta(ocm(O)) --> oracion(O).
+
+
+oracion_compuesta(ocm(OC,C,O)) --> oracion_coordinada(OC), conjuncion(C), oracion(O).
+oracion_compuesta(ocm(OC,C,OS)) --> oracion_coordinada(OC),conjuncion(C),oracion_subordinada(OS).
+oracion_compuesta(ocm(OC1,C,OC2)) --> oracion_coordinada(OC1),conjuncion(C),oracion_coordinada(OC2).
+
+oracion_compuesta(ocm(OS,C,O)) --> oracion_subordinada(OS),conjuncion(C),oracion(O).
+oracion_compuesta(ocm(OS,C,OC)) --> oracion_subordinada(OS),conjuncion(C),oracion_coordinada(OC).
+oracion_compuesta(ocm(OS1,C,OS2)) --> oracion_subordinada(OS1),conjuncion(C),oracion_subordinada(OS2).
+oracion_compuesta(ocm(O1,C,O2)) --> oracion_compuesta(O1),conjuncion(C),oracion_compuesta(O2).
+
+
+
+ocm --> oc,c,o.
+ocm --> oc,c,os.
+ocm --> oc,c,oc.
+
+ocm --> os,c,o.
+ocm --> os,c,oc.
+ocm --> os,c,os.
+
+ocm --> o.
+ocm --> oc.
+ocm --> os.
+ocm --> ocm,c,ocm.
+
+%Regla de una oracion  subordinada de relativo
+oracion_subordinada(os(GN,C,O,GV)) --> g_nominal(GN),conjuncion(C),oracion(O), g_verbal(GV).
+
+os --> gn, c, o, gv.
+
+%Regla de una oracion  coordinada
+oracion_coordinada(oc(O1,C,O2)) --> oracion(O1),conjuncion(C), oracion(O2).
+
+oc --> o, conj,o.
+
 %Regla de una oracion
 oracion(o(GN,GV)) --> g_nominal(GN), g_verbal(GV).
+oracion(o(GN)) --> g_nominal(GN).
+oracion(o(GV)) --> g_verbal(GV).
 
-o --> gn, gv.
+o --> gn,gv.
+o --> gn.
+o --> gv.
 %Grupo Nominal
 g_nominal(gn(N)) --> nombre(N).
 g_nominal(gn(D,N)) --> determinante(D), nombre(N).
@@ -57,7 +101,7 @@ gadj --> adj,comp_adj.
 g_adverbial(gadv(ADV)) --> adverbio(ADV).
 g_adverbial(gadv(INT,ADV)) --> intensificador(INT),adverbio(ADV).
 g_adverbial(gadv(INT,ADV,GP)) --> intensificador(INT),adverbio(ADV), g_preposicional(GP).
-g_adverbial(gadv(ADV,GP)) --> gadv(ADV), g_preposicional(GP).
+g_adverbial(gadv(ADV,GP)) --> adverbio(ADV), g_preposicional(GP).
 
 gadv --> adv.
 gadv --> int,adv.
@@ -159,7 +203,7 @@ adj(harto).
 adj(fritas).
 adj(alta).
 adj(lento).
-
+adj(moreno).
 %ADVERBIOS
 adverbio(adv(X))--> [X],{adv(X)}.
 
@@ -218,6 +262,16 @@ prep(so).
 prep(sobre).
 prep(tras).
 
+%PREPOSICIONES
+conjuncion(conj(X)) --> [X],{conj(X)}.
+conj(y).
+conj(e).
+conj(ni).
+conj(pero).
+conj(que).
+conj(mientras).
+conj(aunque).
+conj(mientras).
 /*
 EJEMPLOS
 oracion([el,hombre,come,una,manzana],[]).
