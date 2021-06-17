@@ -19,15 +19,15 @@ Por otro lado, para el programa en su totalidad deberemos obtener:
     *Diagrama de llamadas a funciones como un diagrama de nodos (grafo), comenzando por una función que se pasa por parámetro al analizador del lenguaje.
 ## Bibliografia
 
-	*Clasicos de la programaci ´ on en ´ Prolog:
+	-Clasicos de la programaci ´ on en ´ Prolog:
 		W. Clocksin, C. Mellish, “Programming in PROLOG”,Springer–Verlag.
 		Libro que describe, de facto, el estandar de _Prolog_.
-	*W. Clocksin, “Clauses and Effects”, Springer–Verlag.
+	-W. Clocksin, “Clauses and Effects”, Springer–Verlag.
 		Otro buen libro de _Prolog_.
-	*L. Sterling, E. Shapiro, “The Art of Prolog”, 3th Ed,MIT Press, 1999.
+	-L. Sterling, E. Shapiro, “The Art of Prolog”, 3th Ed,MIT Press, 1999.
 -Pueden ser utiles los siguientes enlaces:
-	*[P. Brna, “Prolog programming”](https://courses.cs.washington.edu/courses/cse341/03sp/brna.pdf)
+	-[P. Brna, “Prolog programming”](https://courses.cs.washington.edu/courses/cse341/03sp/brna.pdf)
 
-	*[U. Nilsson, J. Maluszynski, “Logic Programming and Prolog”, 2nd Ed, Wiley, 1995.](https://www.ida.liu.se/˜ulfni53/lpp/bok/bok.pdf)
+	-[U. Nilsson, J. Maluszynski, “Logic Programming and Prolog”, 2nd Ed, Wiley, 1995.](https://www.ida.liu.se/˜ulfni53/lpp/bok/bok.pdf)
 
-	*[Algunas notas y transparencias sobre _Prolog_](http://www.illc.uva.nl/˜ulle/teaching/prolog/prolog.pdf)
+	-[Algunas notas y transparencias sobre _Prolog_](http://www.illc.uva.nl/˜ulle/teaching/prolog/prolog.pdf)
