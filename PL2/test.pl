@@ -1,26 +1,29 @@
-:-consult(gramatica).
-%:-consult(ejercicio_3_1).
+/*
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------Documento donde se albergan las diferentes frases para hacer pruebas----------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+*/
 
 
-test1:- oracion(X, [el,hombre,come,una,manzana],[]),write(X).
+test1:- analizar(_, [el,hombre,come,una,manzana],[]).
 
-test2:- oracion(X, [la,mujer,come,manzanas],[]),write(X).
+test2:- analizar(_, [la,mujer,come,manzanas],[]).
 
-test3:- oracion(X, [maría,come,una,manzana,roja],[]),write(X).
+test3:- analizar(_, [maría,come,una,manzana,roja],[]).
 
-test4:- oracion(X, [juan,ama,a,maría],[]),write(X).
+test4:- analizar(_, [juan,ama,a,maría],[]).
 
-test5:- oracion(X, [el,gato,grande,come,un,ratón,gris],[]),write(X).
+test5:- analizar(_, [el,gato,grande,come,un,ratón,gris],[]).
 
-test6:- oracion(X, [juan,estudia,en,la,universidad],[]),write(X).
+test6:- analizar(_, [juan,estudia,en,la,universidad],[]).
 
-test7:- oracion(X, [el,alumno,ama,la,universidad],[]),write(X).
+test7:- analizar(_, [el,alumno,ama,la,universidad],[]).
 
-test8:- oracion(X, [el,gato,come,ratones],[]),write(X).
+test8:- analizar(_, [el,gato,come,ratones],[]).
 
-test9:- oracion(X, [la,manzana,come,un,gato],[]),write(X).
+test9:- analizar(_, [la,manzana,come,un,gato],[]).
 
-test10:- oracion(X, [la,universidad,es,grande],[]),write(X).
+test10:- analizar(_, [la,universidad,es,grande],[]).
 
 
 
@@ -44,68 +47,25 @@ test:-test1,write('Frase 1 OK'),nl,
 
    test10,write('Frase 10 OK'), nl.
    
-   
-drawtest1:- oracion(X,[el,hombre,come,una,manzana],[]),write(X), draw(X).
 
-drawtest2:- oracion(X,[la,mujer,come,manzanas],[]),write(X), draw(X).
-
-drawtest3:- oracion(X,[maría,come,una,manzana,roja],[]),write(X), draw(X).
-
-drawtest4:- oracion(X,[juan,ama,a,maría],[]),write(X), draw(X).
-
-drawtest5:- oracion(X,[el,gato,grande,come,un,ratón,gris],[]),write(X), draw(X).
-
-drawtest6:- oracion(X,[juan,estudia,en,la,universidad],[]),write(X), draw(X).
-
-drawtest7:- oracion(X,[el,alumno,ama,la,universidad],[]),write(X), draw(X).
-
-drawtest8:- oracion(X,[el,gato,come,ratones],[]),write(X), draw(X).
-
-drawtest9:- oracion(X,[la,manzana,come,un,gato],[]),write(X), draw(X).
-
-drawtest10:- oracion(X,[la,universidad,es,grande],[]),write(X), draw(X).
-
-drawtest:-drawtest1,write('Frase 1 OK'),nl,
-
-   drawtest2,write('Frase 2 OK'),nl,
-
-   drawtest3,write('Frase 3 OK'),nl,
-
-   drawtest4,write('Frase 4 OK'),nl,
-
-   drawtest5,write('Frase 5 OK'),nl,
-
-   drawtest6,write('Frase 6 OK'),nl,
-
-   drawtest7,write('Frase 7 OK'),nl,
-
-   drawtest8,write('Frase 8 OK'),nl,
-
-   drawtest9,write('Frase 9 OK'),nl,
-
-   drawtest10,write('Frase 10 OK'), nl.
-   
-   
-   
-   
    
    
 /*-------------------------PL2 ---------------------------*/
 
-pl2test1:- oracion_coordinada(X, [juan,es,moreno,y,maría,es,alta],[]),write(X).
-pl2test2:- oracion_coordinada(X, [juan,estudia,filosofía,pero,maría,estudia,derecho],[]),write(X).
-pl2test3:- oracion_coordinada(X, [maría,toma,un,café,mientras,juan,recoge,la,mesa],[]),write(X).
-pl2test4:- oracion_coordinada(X, [juan,toma,café,y,lee,el,periódico],[]),write(X).
-pl2test5:- oracion_compuesta(X, [juan,y,héctor,comen,patatas,fritas,y,beben,cerveza],[]),write(X).
-pl2test6:- oracion_compuesta(X, [juan,come,patatas,fritas,pero,maría,prefiere,paella,aunque,héctor,toma,café,e,irene,lee,una,novela],[]),write(X).
-pl2test7:- oracion_compuesta(X, [irene,canta,y,salta,mientras,juan,estudia],[]),write(X).
-pl2test8:- oracion_compuesta(X, [héctor,come,patatas,fritas,y,bebe,zumo,mientras,juan,canta,y,salta,aunque,maría,lee,una,novela],[]),write(X).
-pl2test9:- oracion_compuesta(X, [juan,que,es,ágil,escala,en,el,rocódromo,por,las,tardes],[]),write(X).
-pl2test10:- oracion_compuesta(X, [juan,que,es,muy,delicado,come,solamente,manzanas,rojas],[]),write(X).
-pl2test11:- oracion_compuesta(X, [el,procesador,de,textos,que,es,una,herramienta,bastante,potente,sirve,para,escribir,documentos],[]),write(X).
-pl2test12:- oracion_compuesta(X, [el,procesador,de,textos,es,una,herramienta,muy,potente,que,sirve,para,escribir,documentos,pero,es,bastante,lento],[]),write(X).
-pl2test13:- oracion_compuesta(X, [el,ratón,que,cazó,el,gato,era,gris],[]),write(X).
-pl2test14:- oracion_compuesta(X, [el,hombre,que,vimos,ayer,era,mi,vecino],[]),write(X).
+pl2test1:- analizar(_, [juan,es,moreno,y,maría,es,alta],[]).
+pl2test2:- analizar(_, [juan,estudia,filosofía,pero,maría,estudia,derecho],[]).
+pl2test3:- analizar(_, [maría,toma,un,café,mientras,juan,recoge,la,mesa],[]).
+pl2test4:- analizar(_, [juan,toma,café,y,lee,el,periódico],[]).
+pl2test5:- analizar(_, [juan,y,héctor,comen,patatas,fritas,y,beben,cerveza],[]).
+pl2test6:- analizar(_, [juan,come,patatas,fritas,pero,maría,prefiere,paella,aunque,héctor,toma,café,e,irene,lee,una,novela],[]).
+pl2test7:- analizar(_, [irene,canta,y,salta,mientras,juan,estudia],[]).
+pl2test8:- analizar(_, [héctor,come,patatas,fritas,y,bebe,zumo,mientras,juan,canta,y,salta,aunque,maría,lee,una,novela],[]).
+pl2test9:- analizar(_, [juan,que,es,ágil,escala,en,el,rocódromo,por,las,tardes],[]).
+pl2test10:- analizar(_, [juan,que,es,muy,delicado,come,solamente,manzanas,rojas],[]).
+pl2test11:- analizar(_, [el,procesador,de,textos,que,es,una,herramienta,bastante,potente,sirve,para,escribir,documentos],[]).
+pl2test12:- analizar(_, [el,procesador,de,textos,es,una,herramienta,muy,potente,que,sirve,para,escribir,documentos,pero,es,bastante,lento],[]).
+pl2test13:- analizar(_, [el,ratón,que,cazó,el,gato,era,gris],[]).
+pl2test14:- analizar(_, [el,hombre,que,vimos,ayer,era,mi,vecino],[]).
 
 
 pl2test:-pl2test1,nl,write('Frase 1 OK'), nl, nl,

@@ -1,0 +1,73 @@
+//Concatenar listas
+(comprobar-lista ((concatenar lista-1) lista-2))
+(1 2 1)
+
+(comprobar-lista ((concatenar lista-4) lista-5))
+(7 6 12 -10 15 9 7 0 -12 10 15 1)
+
+//Longitud de una lista
+(comprobar (longitud lista-1))
+1
+
+(comprobar (longitud lista-5))
+6
+
+//Invertir una lista
+(comprobar-lista (invertir lista-3))
+(-6 2 20 -12 17)
+
+(comprobar-lista (invertir lista-5))
+(1 15 10 -12 0 7)
+
+
+//Test de pertenencia
+((pertenece lista-1)uno)
+#<procedure:true>
+
+((pertenece lista-5)dos)
+#<procedure:false>
+
+((pertenece lista-3)-doce)
+#<procedure:true>
+
+
+///LAS AVANZADAS
+
+//Suma elementos de una lista
+(testenteros (suma_elementos_lista lista-1))
+1
+
+(testenteros (suma_elementos_lista lista-5))
+21
+
+//Maximo de una lista
+(testenteros (max_lista lista-1))
+1
+
+(testenteros (max_lista lista-3))
+20
+
+(testenteros (max_lista lista-5))
+15
+
+//Minimo de una lista
+(testenteros (min_lista lista-3))
+-12
+
+(testenteros (min_lista lista-4))
+-10
+//Ordenar 
+
+(comprobar-lista ((pop lista-3)-doce))
+(17 20 2 -6)
+
+(comprobar-lista (ordenar lista-3))
+(-12 -6 2 17 20)
+
+//Sumar dos listas
+(comprobar-lista ((sumar_listas lista-4)lista-5))
+(14 6 0 0 30 10)
+
+
+
+
