@@ -15,27 +15,47 @@ Las preguntas se hacen por turnos y gana el que primero adivine el personaje del
 
 Consideraremos los siguientes personajes con sus correspondientes características:
 
-• Albert: chico, pelo negro, ropa roja, feliz, tiene gafas, ojos azules.
-• Paul: chico, pelo rubio, ropa roja, triste, ojos marrones.
-• Tom: chico, pelo negro, ropa verde, feliz, ojos marrones.
-• Derek: chico, pelo negro, ropa verde, triste, ojos marrones.
-• Richard: chico, pelo negro, ropa roja, feliz, ojos azules.
-• Louis: chico, pelo negro, ropa roja, triste, ojos azules.
-• Michael: chico, pelo rubio, ropa verde, feliz, tiene gafas, ojos marrones.
-• Charles: chico, pelo negro, ropa verde, feliz, tiene gafas, ojos marrones.
-• Sam: chico, pelo rubio, ropa roja, triste, ojos azules.
-• Steve: chico, pelo negro, ropa roja, feliz, ojos marrones.
-• Will: chico, pelo rubio, ropa verde, feliz, ojos azules.
-• Anthony: chico, pelo rubio, ropa roja, feliz, tiene gafas, ojos marrones.
-• Billy: chico, pelo rubio, ropa verde, triste, ojos azules.
-• Henry: chico, pelo negro, ropa roja, triste, ojos marrones.
-• Tiffany: chica, pelo negro, ropa verde, feliz, ojos marrones.
-• Natalie: chica, pelo rubio, ropa roja, feliz, tiene gafas, ojos azules.
-• Roxanne: chica, pelo rubio, ropa verde, feliz, ojos azules.
-• Sarah: chica, pelo negro, ropa roja, triste, ojos marrones.
-• Sabrina: chica, pelo negro, ropa verde, feliz, tiene gafas, ojos azules.
-• Cindy: chica, pelo negro, ropa roja, feliz, ojos marrones.
-• Emma: chica, pelo rubio, ropa verde, feliz, ojos marrones.
+	• Albert: chico, pelo negro, ropa roja, feliz, tiene gafas, ojos azules.
+
+	• Paul: chico, pelo rubio, ropa roja, triste, ojos marrones.
+
+	• Tom: chico, pelo negro, ropa verde, feliz, ojos marrones.
+	
+	• Derek: chico, pelo negro, ropa verde, triste, ojos marrones.
+
+	• Richard: chico, pelo negro, ropa roja, feliz, ojos azules.
+
+	• Louis: chico, pelo negro, ropa roja, triste, ojos azules.
+
+	• Michael: chico, pelo rubio, ropa verde, feliz, tiene gafas, ojos marrones.
+	
+	• Charles: chico, pelo negro, ropa verde, feliz, tiene gafas, ojos marrones.
+
+	• Sam: chico, pelo rubio, ropa roja, triste, ojos azules.
+
+	• Steve: chico, pelo negro, ropa roja, feliz, ojos marrones.
+	
+	• Will: chico, pelo rubio, ropa verde, feliz, ojos azules.
+
+	• Anthony: chico, pelo rubio, ropa roja, feliz, tiene gafas, ojos marrones.
+	
+	• Billy: chico, pelo rubio, ropa verde, triste, ojos azules.
+
+	• Henry: chico, pelo negro, ropa roja, triste, ojos marrones.
+	
+	• Tiffany: chica, pelo negro, ropa verde, feliz, ojos marrones.
+
+	• Natalie: chica, pelo rubio, ropa roja, feliz, tiene gafas, ojos azules.
+
+	• Roxanne: chica, pelo rubio, ropa verde, feliz, ojos azules.
+
+	• Sarah: chica, pelo negro, ropa roja, triste, ojos marrones.
+
+	• Sabrina: chica, pelo negro, ropa verde, feliz, tiene gafas, ojos azules.
+
+	• Cindy: chica, pelo negro, ropa roja, feliz, ojos marrones.
+
+	• Emma: chica, pelo rubio, ropa verde, feliz, ojos marrones.
 
 
 ## Objetivos 
@@ -58,17 +78,21 @@ añadidas por cada grupo de alumnos.
 candidatos seleccionado en cada turno de juego.
 7. En el caso de la opción de jugador contra ordenador, hay que implementar al menos
 dos estrategias:
+	
 	a. La computadora almacena la lista de preguntas a hacer (evitando duplicidades) y escoge una al azar de entre las no realizadas hasta el momento.
+	
 	b. La computadora aplica un algoritmo que le permite ganar la partida con el mínimo número de preguntas posible.
 8. Estas estrategias se implementarán en ficheros separados (a consultar según proceda).
 
 Se valorará positivamente cualquier mejora del juego sobre lo expuesto anteriormente. Algunas ideas son las siguientes:
 
-• Mejorar la interfaz de usuario con algún elemento de tipo ’ASCII art’.
-• Aumentar el número de personajes dado.
-• Cambiar el conjunto de personajes proporcionado por un conjunto de famosos,
-deportistas, pokémons, etc. manteniendo el número de personajes y de características.
-• Cualquier otra que cuente con el visto bueno del profesor.
+	• Mejorar la interfaz de usuario con algún elemento de tipo ’ASCII art’.
+
+	• Aumentar el número de personajes dado.
+
+	• Cambiar el conjunto de personajes proporcionado por un conjunto de famosos, deportistas, pokémons, etc. manteniendo el número de personajes y de características.
+
+	• Cualquier otra que cuente con el visto bueno del profesor.
 
 
 
