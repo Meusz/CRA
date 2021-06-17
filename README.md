@@ -3,10 +3,14 @@
 
 # PECL
 -La mayor parte se realizó en las propias sesiones de laboratorio.
+
 -Practicas:
-*PL1.- Prolog - Juego
-*PL2.- Prolog - Procesamiento en Lenguaje Natural
-*PL3.- Scheme (λ–Calculo) 
+
+	*PL1.- Prolog - Juego
+	
+	*PL2.- Prolog - Procesamiento en Lenguaje Natural
+	
+	*PL3.- Scheme (λ–Calculo) 
 
 ## Bibliografia
 
