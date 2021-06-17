@@ -6,11 +6,11 @@
 
 -Practicas:
 
-\t*PL1.- Prolog - Juego
+*PL1.- Prolog - Juego
 	
-\t*PL2.- Prolog - Procesamiento en Lenguaje Natural
+*PL2.- Prolog - Procesamiento en Lenguaje Natural
 	
-\t*PL3.- Scheme (λ–Calculo) 
+*PL3.- Scheme (λ–Calculo) 
 
 ## Bibliografia
 
