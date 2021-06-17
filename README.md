@@ -10,11 +10,14 @@
 
 ## Bibliografia
 
--Clasicos de la programaci ´ on en ´ Prolog:
-	W. Clocksin, C. Mellish, “Programming in PROLOG”,Springer–Verlag.
+-Clasicos de la programación en Prolog:
+	
+-W. Clocksin, C. Mellish, “Programming in PROLOG”,Springer–Verlag.
 	Libro que describe, de facto, el estandar de _Prolog_.
+
 -W. Clocksin, “Clauses and Effects”, Springer–Verlag.
 	Otro buen libro de _Prolog_.
+
 -L. Sterling, E. Shapiro, “The Art of Prolog”, 3th Ed,MIT Press, 1999.
 
 -Pueden ser utiles los siguientes enlaces:
