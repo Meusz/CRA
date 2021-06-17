@@ -86,13 +86,70 @@ dos estrategias:
 
 Se valorará positivamente cualquier mejora del juego sobre lo expuesto anteriormente. Algunas ideas son las siguientes:
 
-	• Mejorar la interfaz de usuario con algún elemento de tipo ’ASCII art’.
+• Mejorar la interfaz de usuario con algún elemento de tipo ’ASCII art’.
 
-	• Aumentar el número de personajes dado.
+• Aumentar el número de personajes dado.
 
-	• Cambiar el conjunto de personajes proporcionado por un conjunto de famosos, deportistas, pokémons, etc. manteniendo el número de personajes y de características.
+• Cambiar el conjunto de personajes proporcionado por un conjunto de famosos, deportistas, pokémons, etc. manteniendo el número de personajes y de características.
 
-	• Cualquier otra que cuente con el visto bueno del profesor.
+• Cualquier otra que cuente con el visto bueno del profesor.
 
 
+## Ejemplo de Funcionamiento
+
+	?- medio.
+	Tu personaje es richard.
+	Te recuerdo sus características:
+	[chico,pelo_negro,ojos_azules,feliz,ropa_roja]
+	Elige de entre las siguientes preguntas una que quieras hacerme y escríbela
+	cambiando la interrogación por un punto: chico?, chica?, gafas?,
+	pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?
+	|: pelo_rubio.
+	La respuesta a la pregunta es negativa.
+	Ya sabes que soy uno de los personajes de la siguiente lista:
+		[albert,chico,gafas,pelo_negro,ojos_azules,feliz,ropa_roja]
+		[charles,chico,gafas,pelo_negro,ojos_marrones,feliz,ropa_verde]
+		[cindy,chica,pelo_negro,ojos_marrones,feliz,ropa_roja]
+		[derek,chico,pelo_negro,ojos_marrones,triste,ropa_verde]
+		[henry,chico,pelo_negro,ojos_marrones,triste,ropa_roja]
+		[louis,chico,pelo_negro,ojos_azules,triste,ropa_roja]
+		[sabrina,chica,gafas,pelo_negro,ojos_azules,feliz,ropa_verde]
+		[sarah,chica,pelo_negro,ojos_azules,triste,ropa_roja]
+		[steve,chico,pelo_negro,ojos_marrones,feliz,ropa_roja]
+		[tiffany,chica,pelo_negro,ojos_marrones,feliz,ropa_verde]
+		[tom,chico,pelo_negro,ojos_marrones,feliz,ropa_verde]
+	Ahora te hago yo una pregunta:
+	feliz?
+	La respuesta a la pregunta es afirmativa. Por lo tanto, aún dudo entre 14 posibilidades.
+	Elige de entre las siguientes preguntas una que quieras hacerme y escríbela cambiando la interrogación por un punto: chico?, chica?, gafas?, pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?
+	|: feliz.
+	La respuesta a la pregunta es negativa.
+	Ya sabes que soy uno de los personajes de la siguiente lista:
+		[derek,chico,pelo_negro,ojos_marrones,triste,ropa_verde]
+		[henry,chico,pelo_negro,ojos_marrones,triste,ropa_roja]
+		[louis,chico,pelo_negro,ojos_azules,triste,ropa_roja]
+		[sarah,chica,pelo_negro,ojos_azules,triste,ropa_roja]
+	Ahora te hago yo una pregunta:
+	chico?
+	La respuesta a la pregunta es afirmativa. Por lo tanto, aún dudo entre 8 posibilidades.
+	Elige de entre las siguientes preguntas una que quieras hacerme y escríbela cambiando la interrogación por un punto: chico?, chica?, gafas?, pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?
+	|: ropa_roja.
+	La respuesta a la pregunta es afirmativa.
+	Ya sabes que soy uno de los personajes de la siguiente lista:
+			[henry,chico,pelo_negro,ojos_marrones,triste,ropa_roja]
+		[louis,chico,pelo_negro,ojos_azules,triste,ropa_roja]
+		[sarah,chica,pelo_negro,ojos_azules,triste,ropa_roja]
+	Ahora te hago yo una pregunta:
+	ropa_roja?
+	La respuesta a la pregunta es afirmativa. Por lo tanto, aún dudo entre 4 posibilidades.
+	Elige de entre las siguientes preguntas una que quieras hacerme y escríbela cambiando la interrogación por un punto: chico?, chica?, gafas?, pelo_rubio?, pelo_negro?, feliz?, triste?, ropa_roja?, ropa_verde?
+	|: ojos_marrones.
+	La respuesta a la pregunta es afirmativa.
+	Ya sabes que soy uno de los personajes de la siguiente lista:
+		[henry,chico,pelo_negro,ojos_marrones,triste,ropa_roja]
+	Ahora te hago yo una pregunta:
+	pelo_negro?
+	La respuesta a la pregunta es afirmativa. Por lo tanto, aún dudo entre 3 posibilidades.
+	Has ganado. Ya sabes que soy henry
+	true
 
